@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import { useNavigate } from 'react-router-dom'; 
 
 const Video = () => {
@@ -26,7 +26,7 @@ const Video = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/travel/plan-trip', payload);
+      const response = await axios.post('/travel/plan-trip', payload);
       navigate('/traveldetail', { state: { data: response.data } });
     } catch (error) {
       console.error('API Error:', error.response?.data || error.message);

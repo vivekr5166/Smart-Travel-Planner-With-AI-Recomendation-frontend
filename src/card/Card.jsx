@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../src/components/axios';
 import { useNavigate } from 'react-router-dom';
 import photo1 from "../../src/assets/images/patna_img.jpg"
 import photo2 from "../../src/assets/images/bodhgaya-img.avif"
@@ -25,7 +25,7 @@ const Card = () => {
   const fetchCityItinerary = async (cityName, cityId) => {
     setLoadingCityId(cityId); 
     try {
-      const res = await axios.post('http://localhost:3000/travel/plan-trip', {
+      const res = await axios.post('/travel/plan-trip', {
         venue: cityName,
         day: `2 days`,
         total_people: 2

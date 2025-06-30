@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import { Link, useNavigate } from 'react-router-dom'; 
 
 const Signup = () => {
@@ -19,7 +19,7 @@ const Signup = () => {
     e.preventDefault();
     setMessage('');
     try {
-      const res = await axios.post('http://localhost:3000/auth/signup', formData); 
+      const res = await axios.post('/auth/signup', formData); 
       setMessage(res.data.message);
       setSuccess(true);
       setFormData({ name: '', email: '', password: '' });

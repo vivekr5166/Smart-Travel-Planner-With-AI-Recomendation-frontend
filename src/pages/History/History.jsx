@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 
 const History = () => {
   const [history, setHistory] = useState([]);
@@ -8,7 +8,7 @@ const History = () => {
   const fetchHistory = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:3000/travel/history", {
+      const response = await axios.get("/travel/history", {
         headers: {
           Authorization: `Bearer ${token}`,
         }

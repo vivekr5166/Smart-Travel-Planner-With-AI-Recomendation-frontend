@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import { useNavigate } from 'react-router-dom'; 
+
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -19,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     setMessage('');
     try {
-      const res = await axios.post('http://localhost:3000/auth/login', formData); 
+      const res = await axios.post('/auth/login', formData); 
       setMessage(res.data.message);
       setSuccess(true);
 
