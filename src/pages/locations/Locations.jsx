@@ -4,7 +4,7 @@ import bodhGayaImg from '../../assets/images/bodhgaya-img.avif';
 import rajgirImg from '../../assets/images/rajgir-img.webp';
 import nalandaImg from '../../assets/images/Nalanda.avif';
 import sitamarhiImg from '../../assets/images/Sitamarhi.jpg';
-import valmikiNagarImg from '../../assets/images/valmiki_Nagar.webp';
+import valmikiNagarImg from '../../assets/images/Valmiki_Nagar.webp';
 import  rohtasWaterfallImg from '../../assets/images/Rohtas_Water_Fall.jpg';
 import kakolatImg from '../../assets/images/Kakolat_Water_Falls.webp';
 import gayaImg from '../../assets/images/Vishnupad_Temple.webp';
