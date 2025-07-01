@@ -40,7 +40,7 @@ const Video = () => {
     <div className="pt-[200px] relative overflow-hidden">
       <video
         autoPlay
-        muted
+        // muted
         loop
         playsInline
         controls={false}
@@ -51,7 +51,7 @@ const Video = () => {
       </video>
 
       <div className="relative z-10 mt-20 flex justify-center px-4">
-        <div className="relative bg-white bg-opacity-100 backdrop-blur-md p-3 rounded-xl shadow-lg flex flex-col md:flex-row gap-5 w-207 max-w-4xl">
+        <div className="relative bg-white bg-opacity-100 backdrop-blur-md p-3 rounded-xl shadow-lg flex flex-col md:flex-row gap-5 w-210 max-w-4xl">
 
           {loading && (
             <div className="absolute inset-0 bg-white/70 flex items-center justify-center rounded-xl z-10">
