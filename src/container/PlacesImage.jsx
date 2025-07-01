@@ -57,65 +57,103 @@ import img50 from "../../src/assets/images/Archaeological_Museum_Nalanda.jpg";
 
 
 
-export const getImage = (place) => {
-    const images = {
-     "Agam Kuan": img1,
-      "Archaeological Museum": img2,
-      "Golghar": img3,
-      "Glass Bridge": img4,
-      "Thai Monastery": img5,
-      "Mahavir Mandir": img6,
-      "Mahabodhi Temple": img7,
-      "Patna Museum": img8,
-      "Bihar Museum": img9,
-      "Bodhi Tree":img10,
-      "Eco Park": img11,
-      "Gandhi Ghat":img12,
-      "Gaua ji Dam":img13,
-      "Great Buddha Statue": img14,
-      "ISKCON Temple Patna":img15,
-      "International Meditation Center":img16,
-      "Buddha Smriti Park":img17,
-      "Nalanda University Ruins":img18,
-      "Vishnupad Mandir":img19,
-      "Sanjay Gandhi Biological Park":img20,
-      "Gandhi Maidan":img21,
-      "Kumhrar":img22,
-      "Khuda Bakhsh Oriental Library":img23,
-      "Griddhakuta":img24,
-      "Mahatma Gandhi Setu":img25,
-      "Hot Springs":img26,
-      "India Gate":img27,
-      "Indosan Nippon Japanese Temple":img28,
-      "Jarasand Akhara": img29,
-      "Nature Safari":img30,
-      "Nit Ghat":img31,
-      "Pandu Pokhar":img32,
-      "Padri Ki Haveli":img33,
-      "Pawapuri Jal Mandir":img34,
-      "Qila House":img35,
-      "Sabhyata Dwar":img36,
-      "Sujata Garh":img37,
-      "Srikrishna Science Centre": img38,
-      "Sher Shah Suri Masjid":img39,
-      "Rajgir Ropeway":img40,
-      "Root Institute":img41,
-      "Takht Sri Patna Sahib":img42,
-      "Tibetan Monastery": img43,
-      "Venuvana":img44,
-      "Vishnupad Temple": img45,
-      "Vishwa Shanti Stupa": img46,
-      "Pawapuri": img47,
-      "Hiuen Tsang Memorial Hall": img48,
-      "Shopping at Maurya Lok": img49,
-      "Archaeological Museum, Nalanda": img50,
-      // "Mangla Gauri Temple": img51,
-      // "Muchalinda Lake": img52,
-      // "Animesh Lochan Chaitya": img53,
-      // "Royal Bhutan Monastery": img54,
-      // "Chinese Temple & Monastery": img55,
-      // "Karma Temple": img56,
+// export const getImage = (place) => {
+//     const images = {
+//      "Agam Kuan": img1,
+//       "Archaeological Museum": img2,
+//       "Golghar": img3,
+//       "Glass Bridge": img4,
+//       "Thai Monastery": img5,
+//       "Mahavir Mandir": img6,
+//       "Mahabodhi Temple": img7,
+//       "Patna Museum": img8,
+//       "Bihar Museum": img9,
+//       "Bodhi Tree":img10,
+//       "Eco Park": img11,
+//       "Gandhi Ghat":img12,
+//       "Gaua ji Dam":img13,
+//       "Great Buddha Statue": img14,
+//       "ISKCON Temple Patna":img15,
+//       "International Meditation Center":img16,
+//       "Buddha Smriti Park":img17,
+//       "Nalanda University Ruins":img18,
+//       "Vishnupad Mandir":img19,
+//       "Sanjay Gandhi Biological Park":img20,
+//       "Gandhi Maidan":img21,
+//       "Kumhrar":img22,
+//       "Khuda Bakhsh Oriental Library":img23,
+//       "Griddhakuta":img24,
+//       "Mahatma Gandhi Setu":img25,
+//       "Hot Springs":img26,
+//       "India Gate":img27,
+//       "Indosan Nippon Japanese Temple":img28,
+//       "Jarasand Akhara": img29,
+//       "Nature Safari":img30,
+//       "Nit Ghat":img31,
+//       "Pandu Pokhar":img32,
+//       "Padri Ki Haveli":img33,
+//       "Pawapuri Jal Mandir":img34,
+//       "Qila House":img35,
+//       "Sabhyata Dwar":img36,
+//       "Sujata Garh":img37,
+//       "Srikrishna Science Centre": img38,
+//       "Sher Shah Suri Masjid":img39,
+//       "Rajgir Ropeway":img40,
+//       "Root Institute":img41,
+//       "Takht Sri Patna Sahib":img42,
+//       "Tibetan Monastery": img43,
+//       "Venuvana":img44,
+//       "Vishnupad Temple": img45,
+//       "Vishwa Shanti Stupa": img46,
+//       "Pawapuri": img47,
+//       "Hiuen Tsang Memorial Hall": img48,
+//       "Shopping at Maurya Lok": img49,
+//       "Archaeological Museum, Nalanda": img50,
+//       // "Mangla Gauri Temple": img51,
+//       // "Muchalinda Lake": img52,
+//       // "Animesh Lochan Chaitya": img53,
+//       // "Royal Bhutan Monastery": img54,
+//       // "Chinese Temple & Monastery": img55,
+//       // "Karma Temple": img56,
      
-    };
-    return images[place] || "/images/default.jpg";
+//     };
+//     return images[place] || "/images/default.jpg";
+//   };
+
+import axios from "axios";
+
+const API_KEY = AIzaSyBqzgmlRdbxU4tBKs8ab0iWPtE3rgB0ZjI;
+const CX = e4bf67853d13e407b; 
+//console.log(import.meta.env.VITE_API_KEY);
+export const getImage = async (place) => {
+  const images = {
+    "Agam Kuan": img1,
+    "Archaeological Museum": img2,
+    "Golghar": img3,
+    "Glass Bridge": img4,
+    // ... rest of your static entries
   };
+
+  // ✅ Return local image if available
+  if (images[place]) return images[place];
+
+  // ❌ Fallback to Google Image Search
+  try {
+    const response = await axios.get("https://www.googleapis.com/customsearch/v1", {
+      params: {
+        key: API_KEY,
+        cx: CX,
+        q: place,
+        searchType: "image",
+        num: 1,
+        safe: "active",
+      },
+    });
+
+    const link = response.data.items?.[0]?.link;
+    return link || "/images/default.jpg";
+  } catch (err) {
+    console.error("Image fetch error:", err);
+    return "/images/default.jpg";
+  }
+};
