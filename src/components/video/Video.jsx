@@ -38,7 +38,6 @@ const Video = () => {
 
   return (
     <div className="pt-[200px] relative overflow-hidden">
-      {/* Background Video */}
       <video
         autoPlay
         muted
@@ -51,11 +50,9 @@ const Video = () => {
         <source src="/video/India-360-v2.mp4" type="video/mp4" />
       </video>
 
-      {/* Search Section with Loader */}
       <div className="relative z-10 mt-20 flex justify-center px-4">
         <div className="relative bg-white bg-opacity-100 backdrop-blur-md p-3 rounded-xl shadow-lg flex flex-col md:flex-row gap-5 w-207 max-w-4xl">
 
-          {/* Loader only over search box */}
           {loading && (
             <div className="absolute inset-0 bg-white/70 flex items-center justify-center rounded-xl z-10">
               <div className="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
