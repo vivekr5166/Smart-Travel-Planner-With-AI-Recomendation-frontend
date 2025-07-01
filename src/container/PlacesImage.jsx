@@ -50,6 +50,10 @@ import img48 from "../../src/assets/images/Hiuen_Tsang_Memorial_Hall.jpg";
 import img49 from "../../src/assets/images/Shopping_at_Maurya_Lok.jpg";
 import img50 from "../../src/assets/images/Archaeological_Museum_Nalanda.jpg";
 // import img51 from "../../assets/images/Mangla_Gauri_Temple.jpg";
+// import img52 from "../../assets/images/Muchalinda_Lake.jpg";
+// import img53 from "../../assets/images/Animesh_Lochan_Chaitya.jpg";
+// import img54 from "../../assets/images/Royal_Bhutan_Monastery.jpg";
+// import img56 from "../../assets/images/Karma_Temple.jpeg";
 
 
 
@@ -105,6 +109,12 @@ export const getImage = (place) => {
       "Hiuen Tsang Memorial Hall": img48,
       "Shopping at Maurya Lok": img49,
       "Archaeological Museum, Nalanda": img50,
+      // "Mangla Gauri Temple": img51,
+      // "Muchalinda Lake": img52,
+      // "Animesh Lochan Chaitya": img53,
+      // "Royal Bhutan Monastery": img54,
+      // "Chinese Temple & Monastery": img55,
+      // "Karma Temple": img56,
      
     };
     return images[place] || "/images/default.jpg";

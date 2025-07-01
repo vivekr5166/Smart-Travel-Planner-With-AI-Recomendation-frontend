@@ -67,7 +67,7 @@ const TravelDetails = () => {
                 <div className="flex-1">
                   <h4 className="text-xl font-semibold text-gray-800 mb-1">{place.name}</h4>
                   <p className="text-sm text-gray-600"><strong>🕑 Visit Duration:</strong> {place.time}</p>
-                  <p className="text-sm text-gray-600"><strong>⏰ Open:</strong> {place.open_time} - {place.close_time}</p>
+                  {/* <p className="text-sm text-gray-600"><strong>⏰ Open:</strong> {place.open_time} - {place.close_time}</p> */}
                   <p className="text-sm text-gray-600"><strong>📍 Type:</strong> {place.type}</p>
                   <p className="text-sm text-gray-600"><strong>🎟️ Ticket:</strong> {place.ticket_cost}</p>
                   <p className="text-sm text-gray-500 mt-1 italic">{place.description}</p>
