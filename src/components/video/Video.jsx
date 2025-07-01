@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../../components/axios';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 const Video = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +8,8 @@ const Video = () => {
     day: '',
     total_people: ''
   });
-
-  const navigate = useNavigate(); 
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -26,15 +26,19 @@ const Video = () => {
     };
 
     try {
+      setLoading(true);
       const response = await axios.post('/travel/plan-trip', payload);
       navigate('/traveldetail', { state: { data: response.data } });
     } catch (error) {
       console.error('API Error:', error.response?.data || error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="pt-[200px] relative overflow-hidden">
+      {/* Background Video */}
       <video
         autoPlay
         muted
@@ -47,8 +51,17 @@ const Video = () => {
         <source src="/video/India-360-v2.mp4" type="video/mp4" />
       </video>
 
+      {/* Search Section with Loader */}
       <div className="relative z-10 mt-20 flex justify-center px-4">
-        <div className="bg-white bg-opacity-100 backdrop-blur-md p-3 rounded-xl shadow-lg flex flex-col md:flex-row gap-5 w-207 max-w-4xl">
+        <div className="relative bg-white bg-opacity-100 backdrop-blur-md p-3 rounded-xl shadow-lg flex flex-col md:flex-row gap-5 w-207 max-w-4xl">
+
+          {/* Loader only over search box */}
+          {loading && (
+            <div className="absolute inset-0 bg-white/70 flex items-center justify-center rounded-xl z-10">
+              <div className="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+            </div>
+          )}
+
           <input
             type="text"
             name="venue"
